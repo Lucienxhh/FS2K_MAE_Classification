@@ -21,5 +21,7 @@ from torch._six import container_abcs
 ImportError: cannot import name 'container_abcs'
 
 如果出现上述报错信息，打开helpers.py文件，注释报错行并替换
-# from torch._six import container_abcs   # comment it
-import collections.abc as container_abcs  # alternative one
+```
+  # from torch._six import container_abcs   # comment it
+  import collections.abc as container_abcs  # alternative one
+```
