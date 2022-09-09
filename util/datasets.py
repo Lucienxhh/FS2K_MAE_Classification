@@ -20,8 +20,10 @@ from timm.data.constants import IMAGENET_DEFAULT_MEAN, IMAGENET_DEFAULT_STD
 def build_dataset(is_train, args, is_test=False):
     transform = build_transform(is_train, args)
 
-    root = os.path.join(args.data_path, 'train' if is_train else 'val')
-    root = os.path.join(args.data_path, 'test' if is_test else 'val')
+    if is_test:
+        root = os.path.join(args.data_path, 'test')
+    else:
+        root = os.path.join(args.data_path, 'train' if is_train else 'val')
     dataset = datasets.ImageFolder(root, transform=transform)
 
     print(dataset)
